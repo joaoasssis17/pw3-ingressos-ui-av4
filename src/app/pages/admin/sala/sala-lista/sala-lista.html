@@ -1,0 +1,41 @@
+<app-container>
+  <div class="page-container">
+    <h2>Lista de Salas</h2>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" routerLink="novo">
+        <mat-icon>add</mat-icon> Nova Sala
+      </button>
+    </div>
+
+    <div class="table-container">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of (salas | async); track item.id) {
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.preco }}</td>
+        <td>
+          <button (click)="editar(item.id!)">
+            EDITAR
+          </button>
+
+          <button (click)="excluir(item.id!)">
+            EXCLUIR
+          </button>
+        </td>
+      </tr>
+    }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</app-container>
