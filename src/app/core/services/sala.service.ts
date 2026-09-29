@@ -30,5 +30,6 @@ export class SalaService {
  excluirSalaId(id: Number): Observable<Sala>{
     return this.http.delete<Sala>(`${this.apiUrl}/${id}`);
   }
+  /**/ 
 }
 
